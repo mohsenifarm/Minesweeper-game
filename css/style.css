@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://cdnb.artstation.com/p/assets/images/images/002/196/369/large/olga-antonenko-monolith-final.jpg?1458561812);
+    background-size: cover;
+}
+  nav {
+    display: flex;
+    background-color: rgb(189,189,189);
+    height: 130px;
+    width: 362px;
+    border: 6px outset gray;
+    margin-top: 40px;
+    border: 20px ridge rgb(189,189,189);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    
+  }
+  section {
+      
+    border: 6px outset gray;
+      
+    display: grid;
+    grid-template-columns: repeat(7,50px);
+    grid-template-rows: repeat(7,50px);
+    margin: 0 auto auto auto;
+    
+  }
+  section IMG {
+    height: 50px;
+    width: 50px;
+}
+  /* nav,section {
+    display: grid;
+} */
+
+button {
+    text-align: center;
+    height: 80px;
+    width: 80px;
+    font-size: 45px;
+    background-color: rgb(189,189,189);
+    border: 10px outset rgb(210,210,210);
+}
+h1 {
+    font-family: 'Cormorant Unicase', serif;
+    font-weight: bold;
+    font-size: 48px;
+}
