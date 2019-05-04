@@ -10,7 +10,9 @@
     justify-content: center;
     align-items: center;
     background-image: url(https://cdnb.artstation.com/p/assets/images/images/002/196/369/large/olga-antonenko-monolith-final.jpg?1458561812);
+    /* background-size: contain; */
     background-size: cover;
+
 }
   nav {
     display: flex;
@@ -40,9 +42,7 @@
     height: 50px;
     width: 50px;
 }
-  /* nav,section {
-    display: grid;
-} */
+
 
 button {
     text-align: center;
