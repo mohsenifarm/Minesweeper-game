@@ -14,7 +14,7 @@ const pics = {
   empty: "images/facingDown.png"
 };
 //--------------variables------------------
-var mineArr, img, btn, row, column, minesNum;
+var mineArr, img, btn, row, column, minesNum, flagArr;
 
 //---------------dom--------------------
 var sec = document.querySelector("section");
@@ -26,12 +26,13 @@ sec.addEventListener("click", play);
 //---------------function----------------
 init();
 function init() {
+  flagArr = [];
   mineArr = [];
   render();
   img = document.querySelectorAll("img");
   row = 7;
   column = 7;
-  minesNum = 1;
+  minesNum = 2;
 }
 function render() {
   for (var i = 0; i < 49; i++) {
@@ -56,6 +57,9 @@ function play(evt) {
       img[eti].src = `images/${mineFinder(x, y)}.png`;
     }
   }
+}
+function getWinner () {
+  
 }
 
 function mineFinder(x, y) {
@@ -101,49 +105,129 @@ getRandom();
 console.log(mineArr);
 
 function checkImage(x, y) {
-  let source = img[y * row + x].attributes.src.nodeValue;
-  if (x >= 0 && x < row && y >= 0 && y < column) {
-    if (source === pics.empty) {
-      return true;
-    }
-  } else return false;
+  if (img[y * row + x].attributes.src) {
+    let source = img[y * row + x].attributes.src.nodeValue;
+    if (x >= 0 && x < row && y >= 0 && y < column) {
+      if (source === pics.empty) {
+        return true;
+      }
+    } else return false;
+  }
 }
+//put flag
+sec.addEventListener("contextmenu", getFlag);
+function getFlag(event) {
+  event.preventDefault();
+  if (
+    (img[event.target.id] = `${pics.empty}` && img[event.target.id] != `${pics.zero}`) 
+  ) {
+    img[event.target.id].src = `${pics.flag}`;
 
+  } else if (
+    (img[event.target.id] =
+      `${pics.flag}` && img[event.target.id] != `${pics.zero}`)
+  ) {
+    img[event.target.id].src = `${pics.empty}`;
+  }
+}
 function reveal(x, y) {
   if (mineFinder(x, y) === 0) {
     img[y * row + x].src = `images/0.png`;
   }
-  // if (mineFinder(x - 1, y) === 0 && x > 0 && x < row && checkImage(x - 1, y))
-  //   reveal(x - 1, y);
-  // else if (mineFinder(x - 1, y) !== 0)
-  //   img[y * row + x - 1].src = `images/${mineFinder(x - 1, y)}.png`;
+  if (mineFinder(x - 1, y) === 0 && x > 0 && x < row && checkImage(x - 1, y))
+    reveal(x - 1, y);
+  else if (mineFinder(x - 1, y) !== 0)
+    img[y * row + x - 1].src = `images/${mineFinder(x - 1, y)}.png`;
+  if (
+    mineFinder(x + 1, y) === 0 &&
+    x >= 0 &&
+    x < row - 1 &&
+    checkImage(x + 1, y)
+  )
+    reveal(x + 1, y);
+  else if (mineFinder(x + 1, y) !== 0 && checkImage(x + 1, y))
+    img[y * row + (x + 1)].src = `images/${mineFinder(x + 1, y)}.png`;
+  if (mineFinder(x, y - 1) === 0 && y > 0 && y < column && checkImage(x, y - 1))
+    reveal(x, y - 1);
+  else if (mineFinder(x, y - 1) !== 0)
+    img[(y - 1) * row + x].src = `images/${mineFinder(x, y - 1)}.png`;
+  if (
+    mineFinder(x, y + 1) === 0 &&
+    y >= 0 &&
+    y < column - 1 &&
+    checkImage(x, y + 1)
+  )
+    reveal(x, y + 1);
+  else if (mineFinder(x, y + 1) !== 0)
+    img[(y + 1) * row + x].src = `images/${mineFinder(x, y + 1)}.png`;
+
   // if (
-  //   mineFinder(x + 1, y) === 0 &&
+  //   mineFinder(x - 1, y - 1) === 0 &&
+  //   x > 0 &&
+  //   y > 0 &&
+  //   y < column &&
+  //   x < row &&
+  //   checkImage(x - 1, y - 1)
+  // )
+  //   reveal(x - 1, y - 1);
+  // else if (mineFinder(x - 1, y - 1) !== 0) {
+  //   if (img[y * row + x - (row + 1)]) {
+  //     img[y * row + x - (row + 1)].src = `images/${mineFinder(
+  //       x - 1,
+  //       y - 1
+  //     )}.png`;
+  //   }
+  // }
+
+  // if (
+  //   mineFinder(x + 1, y + 1) === 0 &&
   //   x >= 0 &&
   //   x < row - 1 &&
-  //   checkImage(x + 1, y)
-  // )
-  //   reveal(x + 1, y);
-  // else if (mineFinder(x + 1, y) !== 0 && checkImage(x + 1, y))
-  //   img[y * row + (x + 1)].src = `images/${mineFinder(x + 1, y)}.png`;
-  // if (mineFinder(x, y - 1) === 0 && y > 0 && y < column && checkImage(x, y - 1))
-  //   reveal(x, y - 1);
-  // else if (mineFinder(x, y - 1) !== 0)
-  //   img[(y - 1) * row + x].src = `images/${mineFinder(x, y - 1)}.png`;
-  // if (
-  //   mineFinder(x, y + 1) === 0 &&
   //   y >= 0 &&
-  //   y < column - 1 &&
-  //   checkImage(x, y + 1)
+  //   y < column -1 &&
+  //   checkImage(x + 1, y + 1)
   // )
-  //   reveal(x, y + 1);
-  // else if (mineFinder(x, y + 1) !== 0)
-  //   img[(y + 1) * row + x].src = `images/${mineFinder(x, y + 1)}.png`;
-
-
-  
-  // if (mineFinder(x - 1, y - 1) === 0 && x > 0 && y > 0 && y < column && x < row && checkImage(x-1, y-1))
-  //   reveal(x - 1, y - 1);
-  // else if (mineFinder(x - 1, y - 1) !== 0)
-  //   img[y * row + x - (row + 1)].src = `images/${mineFinder(x - 1, y - 1)}.png`;
+  //   reveal(x + 1, y + 1);
+  // else if (mineFinder(x + 1, y + 1) !== 0) {
+  //   if (img[(y + 1) * row + (x + 1)]) {
+  //     img[(y + 1) * row + (x + 1)].src = `images/${mineFinder(
+  //       x + 1,
+  //       y + 1
+  //     )}.png`;
+  //   }
+  // }
+  // if (
+  //   mineFinder(x + 1, y - 1) === 0 &&
+  //   x >= 0 &&
+  //   x < row - 1 &&
+  //   y > 0 &&
+  //   y < column &&
+  //   checkImage(x + 1, y - 1)
+  // )
+  //   reveal(x + 1, y - 1);
+  // else if (mineFinder(x + 1, y - 1) !== 0) {
+  //   if (img[(y - 1) * row + (x + 1)]) {
+  //     img[(y - 1) * row + (x + 1)].src = `images/${mineFinder(
+  //       x + 1,
+  //       y - 1
+  //     )}.png`;
+  //   }
+  // }
+  // if (
+  //   mineFinder(x - 1, y + 1) === 0 &&
+  //   x > 0 &&
+  //   x < row - 1 &&
+  //   y >= 0 &&
+  //   y < column &&
+  //   checkImage(x - 1, y + 1)
+  // )
+  //   reveal(x - 1, y + 1);
+  // else if (mineFinder(x - 1, y + 1) !== 0) {
+  //   if (img[(y + 1) * row + (x - 1)]) {
+  //     img[(y + 1) * row + (x - 1)].src = `images/${mineFinder(
+  //       x - 1,
+  //       y + 1
+  //     )}.png`;
+  //   }
+  // }
 }

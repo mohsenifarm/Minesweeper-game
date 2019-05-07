@@ -17,10 +17,10 @@
   nav {
     display: flex;
     background-color: rgb(189,189,189);
-    height: 130px;
+    height: 120px;
     width: 362px;
     border: 6px outset gray;
-    margin-top: 40px;
+    margin-top: 10px;
     border: 20px ridge rgb(189,189,189);
     text-align: center;
     justify-content: center;
@@ -56,4 +56,6 @@ h1 {
     font-family: 'Cormorant Unicase', serif;
     font-weight: bold;
     font-size: 48px;
+    color: rgb(231,162,44);
+    /* margin-top: 150px; */
 }
