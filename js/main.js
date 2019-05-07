@@ -19,6 +19,7 @@ var mineArr, img, btn, row, column, minesNum, flagArr;
 //---------------dom--------------------
 var sec = document.querySelector("section");
 var resetBtn = document.querySelector("button");
+var h1 = document.querySelector("h1");
 
 //----------event & listener------------
 
@@ -32,7 +33,7 @@ function init() {
   img = document.querySelectorAll("img");
   row = 7;
   column = 7;
-  minesNum = 2;
+  minesNum = 3;
 }
 function render() {
   for (var i = 0; i < 49; i++) {
@@ -42,6 +43,10 @@ function render() {
     sec.appendChild(cell);
   }
 }
+resetBtn.addEventListener("click", resrtGame);
+function resrtGame(event) {
+  event.target.id = location.reload();
+}
 function play(evt) {
   var eti = evt.target.id;
   var x = parseInt(eti) % row;
@@ -49,6 +54,10 @@ function play(evt) {
   if (mineArr.includes(parseInt(eti))) {
     mineArr.forEach(elm => {
       img[elm].src = `${pics.bomb}`;
+      h1.innerHTML = `sorry you loose the game &#128546`;
+      setTimeout(function() {
+        location.reload();
+      }, 2000);
     });
   } else {
     if (mineFinder(x, y) === 0) {
@@ -57,9 +66,6 @@ function play(evt) {
       img[eti].src = `images/${mineFinder(x, y)}.png`;
     }
   }
-}
-function getWinner () {
-  
 }
 
 function mineFinder(x, y) {
@@ -118,18 +124,47 @@ function checkImage(x, y) {
 sec.addEventListener("contextmenu", getFlag);
 function getFlag(event) {
   event.preventDefault();
+
   if (
-    (img[event.target.id] = `${pics.empty}` && img[event.target.id] != `${pics.zero}`) 
+    (img[event.target.id] =
+      `${pics.empty}` && img[event.target.id] != `${pics.zero}`)
   ) {
     img[event.target.id].src = `${pics.flag}`;
-
+    flagArr.push(parseInt(event.target.id));
+    // console.log(flagArr);
   } else if (
     (img[event.target.id] =
       `${pics.flag}` && img[event.target.id] != `${pics.zero}`)
   ) {
     img[event.target.id].src = `${pics.empty}`;
   }
+  getWinner();
 }
+// {flagArr.forEach(falgelm)=>{
+//   if(minelm === falgelm
+
+function getWinner() {
+  var a = mineArr.sort();
+  var b = flagArr.sort();
+  // console.log(a);
+  // console.log(b);
+  // console.log(parseInt(a.length));
+  // console.log(b.length);
+
+  for (var i = 0; i < a.length; i++) {
+    if (a[i] === b[i] && b.length === a.length) {
+      h1.innerHTML = "YoU ArE A WiNnEr!!!!!!!!";
+    }
+  }
+
+  // if (
+  //   mineArr.includes(flagArr.forEach(function(elm){
+  //     return elm;
+  //   })
+
+  // )) alert('win');
+}
+
 function reveal(x, y) {
   if (mineFinder(x, y) === 0) {
     img[y * row + x].src = `images/0.png`;
