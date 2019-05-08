@@ -1,7 +1,94 @@
 * {
     box-sizing: border-box;
   }
+  body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://cdnb.artstation.com/p/assets/images/images/002/196/369/large/olga-antonenko-monolith-final.jpg?1458561812);
+    background-size: cover;
 
+}
+  nav {
+    display: flex;
+    background-color: rgb(189,189,189);
+    height: 70px;
+    width: 310px;
+    border: 4px outset gray;
+    margin-top: 10px;
+    border: 10px ridge rgb(189,189,189);
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+
+    
+  }
+  section {
+      
+    border: 4px outset gray;
+      
+    display: grid;
+    grid-template-columns: repeat(10,30px);
+    grid-template-rows: repeat(10,30px);
+    margin: 0 auto auto auto;
+    
+  }
+  section IMG {
+    height: 30px;
+    width: 30px;
+}
+
+
+#refresh {
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    font-size: 25px;
+    background-color: rgb(189,189,189);
+    border: 5px outset rgb(210,210,210);
+}
+h1 {
+    font-family: 'Cormorant Unicase', serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: rgb(231,162,44);
+
+}
+#test {
+  height: 40px;
+  width: 60px;
+  background-color: black;
+  color: rgb(231,162,44);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 15px;
+  border: 2px inset gray;
+  border-radius: 20%;
+  font-family: 'VT323', monospace;
+
+  
+}
+#lol {
+  height: 40px;
+  width: 60px;
+  background-color: black;
+  color: rgb(231,162,44);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 15px;
+  border: 2px inset gray;
+  border-radius: 20%;
+  font-family: 'VT323', monospace;
+}
+
+@media only screen and (min-width: 768px) {
   body {
     height: 100vh;
     margin: 0;
@@ -87,4 +174,5 @@ h1 {
   border: 2px inset gray;
   border-radius: 20%;
   font-family: 'VT323', monospace;
+}
 }
