@@ -17,18 +17,19 @@ const pics = {
 var mineArr, img, btn, row, column, minesNum, flagArr;
 
 //---------------dom--------------------
-var inp = document.querySelector("input").value;
+// var option = document.querySelector("select");
 var sec = document.querySelector("section");
 var resetBtn = document.querySelector("#refresh");
 var h1 = document.querySelector("h1");
-var start = document.querySelector("#start");
+// var start = document.querySelector("#start");
 
 //----------event & listener------------
 
 sec.addEventListener("click", play);
 sec.addEventListener("contextmenu", getFlag);
-start.addEventListener("click", startGame);
+// start.addEventListener("click", startGame);
 resetBtn.addEventListener("click", resrtGame);
+// option.addEventListener("change", gameType);
 //---------------function----------------
 init();
 function init() {
@@ -37,7 +38,7 @@ function init() {
   row = 10;
   column = 10;
 
-  minesNum = 1;
+  minesNum = 10;
   render();
   img = document.querySelectorAll("img");
 }
@@ -49,6 +50,15 @@ function render() {
     sec.appendChild(cell);
   }
 }
+// function gameType(evt) {
+  // console.log(evt.target[1].id);
+  // if (evt.target[1].id) minesNum = 5; 
+  // else if (evt.target[2].id) minesNum = 10; 
+  // else if (evt.target[3].id) minesNum = 20; 
+// } 
+// gameType();
+
+
 // function startGame(evt) {
 //   minesNum = parseInt(inp);
 //   // console.log(minesNum);
