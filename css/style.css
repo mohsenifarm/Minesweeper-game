@@ -22,7 +22,7 @@
     margin-top: 10px;
     border: 20px ridge rgb(189,189,189);
     text-align: center;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
     
@@ -57,4 +57,34 @@ h1 {
     font-size: 48px;
     color: rgb(231,162,44);
 
+}
+#test {
+  height: 70px;
+  width: 100px;
+  background-color: black;
+  color: rgb(231,162,44);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 15px;
+  font-size: 27px;
+  border: 2px inset gray;
+  border-radius: 20%;
+  font-family: 'VT323', monospace;
+
+  
+}
+#lol {
+  height: 70px;
+  width: 100px;
+  background-color: black;
+  color: rgb(231,162,44);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 18px;
+  font-size: 30px;
+  border: 2px inset gray;
+  border-radius: 20%;
+  font-family: 'VT323', monospace;
 }

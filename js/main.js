@@ -109,9 +109,7 @@ function getRandom() {
     }
   }
 }
-
 getRandom();
-console.log(mineArr);
 
 function checkImage(x, y) {
   if (img[y * row + x].attributes.src) {
@@ -126,11 +124,10 @@ function checkImage(x, y) {
 //put flag
 function getFlag(event) {
   event.preventDefault();
-  console.log(img[event.target.id].attributes.src.nodeValue);
   if (img[event.target.id].attributes.src.nodeValue === `${pics.empty}`) {
     img[event.target.id].src = `${pics.flag}`;
     flagArr.push(parseInt(event.target.id));
-    // console.log(flagArr);
+    mineCounter();
   } else if (img[event.target.id].attributes.src.nodeValue === `${pics.flag}`) {
     img[event.target.id].src = `${pics.empty}`;
   }
@@ -248,5 +245,13 @@ function reveal(x, y) {
     y < column - 1
   ) {
     img[(y + 1) * row + (x - 1)].src = `images/${mineFinder(x - 1, y + 1)}.png`;
+  }
+}
+function mineCounter() {
+  var count = 10 - flagArr.length;
+  if (count >= 0) {
+    document.querySelector("#test").innerHTML = `FLG : ${count}`;
+  } else {
+    document.querySelector("#test").innerHTML = `???`;
   }
 }
