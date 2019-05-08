@@ -18,7 +18,7 @@
     display: flex;
     background-color: rgb(189,189,189);
     height: 120px;
-    width: 362px;
+    width: 512px;
     border: 6px outset gray;
     margin-top: 10px;
     border: 20px ridge rgb(189,189,189);
@@ -33,8 +33,8 @@
     border: 6px outset gray;
       
     display: grid;
-    grid-template-columns: repeat(7,50px);
-    grid-template-rows: repeat(7,50px);
+    grid-template-columns: repeat(10,50px);
+    grid-template-rows: repeat(10,50px);
     margin: 0 auto auto auto;
     
   }
@@ -44,7 +44,7 @@
 }
 
 
-button {
+#refresh {
     text-align: center;
     height: 80px;
     width: 80px;
@@ -53,9 +53,34 @@ button {
     border: 10px outset rgb(210,210,210);
 }
 h1 {
+  margin-top: 200px;
     font-family: 'Cormorant Unicase', serif;
     font-weight: bold;
     font-size: 48px;
     color: rgb(231,162,44);
     /* margin-top: 150px; */
+}
+input {
+  margin-bottom: 350px;
+  height: 40px;
+  border: 4px inset gray;
+  width: 160px;
+  font-weight: bold;
+
+  
+}
+::placeholder {
+  color: black;
+  /* padding: 10px; */
+}
+#start {
+  border-radius: 50%;
+  margin-bottom: 200px;
+  margin-top: 0;
+  background-color: red;
+  border: none;
+  color: white;
+  font-weight: bold;
+  margin-left: 20px;
+  height: 50px;
 }
