@@ -144,7 +144,7 @@ h1 {
     font-family: 'Cormorant Unicase', serif;
     /* font-family: 'VT323', monospace; */
     font-weight: bold;
-    font-size: 90px;
+    font-size: 80px;
     color: rgb(231,162,44);
 
 }
@@ -152,7 +152,7 @@ h1 {
   height: 70px;
   width: 100px;
   background-color: black;
-  color: rgb(231,162,44);
+  color: rgb(125,234,82);
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -168,7 +168,7 @@ h1 {
   height: 70px;
   width: 100px;
   background-color: black;
-  color: rgb(231,162,44);
+  color: rgb(125,234,82);
   align-items: center;
   justify-content: center;
   text-align: center;
