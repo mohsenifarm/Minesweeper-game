@@ -3,11 +3,11 @@ ______________
 ![Game-start](images/no1.png)
 ![Game-win](images/no3.png)
 ![Game-lose](images/no2.png)
-##Technologies Used
+## Technologies Used
 
 I used JavaScript, HTML, CSS
 
-##Getting Started
+## Getting Started
 
 [Let's start the game](https://payam12444.github.io/Minesweeper-game/)
 
