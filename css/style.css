@@ -133,7 +133,7 @@ h1 {
     border: 10px outset rgb(210,210,210);
 }
 h1 {
-    margin-top: 100px;
+    margin-top: 0px;
     font-family: 'Cormorant Unicase', serif;
     font-weight: bold;
     font-size: 80px;
