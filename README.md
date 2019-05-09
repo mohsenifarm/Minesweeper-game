@@ -16,6 +16,6 @@ The game is about finding the hidden mines. Each box you click on will either sh
 In the blow section i used recursion to expand the boxes if there is no mine:
 ![recursion](images/recursion.png)
 
-Unsolved Problems
+## Unsolved Problems
 
 My plan for the future is add choose for easy,medium,hard game.
