@@ -9,7 +9,7 @@ I used JavaScript, HTML, CSS
 
 ## Getting Started
 
-[Let's start the game](https://payam12444.github.io/Minesweeper-game/)
+[Let's start the game](https://mohsenifarm.github.io/Minesweeper-game/)
 
 The game is about finding the hidden mines. Each box you click on will either show a number of mines around each box or a mine. If there is no number it means that there is no mine around it. You can put a flag by right-clicking anywhere you think there is a mine. If you click all the boxes without clicking a mine, you will win.
 
